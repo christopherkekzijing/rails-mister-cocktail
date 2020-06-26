@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <ul>
+    <% @cocktails.each do |c| %>
+      <li><h1><%= c.name %></h1>
+        <% c.doses.each do |dose|%>
+          <p><%= dose.description %> - <%= dose.ingredient.name %></p>
+        <% end %>
+        <%= link_to "More info", cocktail_path(c), class: "btn btn-primary mr-2" %>
+        <%= link_to "Delete", c, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary mr-2"%>
+        <hr>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
