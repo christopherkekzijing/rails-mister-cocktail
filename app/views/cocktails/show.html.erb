@@ -1,5 +1,8 @@
 <div class="container">
     <h1><%= @cocktail.name %></h1>
+    <% @cocktail.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
+    <% end %>
     <% @cocktail.doses.each do |dose|%>
       <p><%= dose.description %> - <%= dose.ingredient.name %> <%= link_to "Delete", dose_path(dose), method: :delete %></p>
     <% end %>
