@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   def create
     @cocktail = Cocktail.find(params[:cocktail_id])
     @review = Review.new(review_params)
+    @dose = Dose.new
     @review.cocktail = @cocktail
 
     if @review.save

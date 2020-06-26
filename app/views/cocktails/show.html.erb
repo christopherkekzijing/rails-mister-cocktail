@@ -16,15 +16,6 @@
         <% end %>
       </div>
     </div>
-
-    <% if @dose.errors.any? %>
-      <ul>
-        <% @dose.errors.full_messages.each do |message| %>
-          <li><%= message.lstrip %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
     <hr>
     <% @cocktail.reviews.each do |review|%>
       <p><%= review.content %> <%="⭐️" * review.rating%> <%= link_to "Delete", review_path(review), method: :delete %></p>
